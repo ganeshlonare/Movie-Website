@@ -1,10 +1,10 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faVideoSlash } from "@fortawesome/free-solid-svg-icons";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container"
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import {NavLink} from "react-router-dom";
+import {Link, NavLink} from "react-router-dom";
+import {FaPlay} from 'react-icons/fa'
+import NavbarCollapse from "react-bootstrap/esm/NavbarCollapse";
 
 const Header = () => {
  
@@ -12,7 +12,8 @@ return (
     <Navbar bg="dark" variant="dark" expand="lg">
         <Container fluid>
             <Navbar.Brand href="/" style={{"color":'gold'}}>
-                <FontAwesomeIcon icon ={faVideoSlash}/>Gold
+                {/* <FontAwesomeIcon icon ={faVideoSlash}/>Gold */}
+                <div className="flex gap-2 justify-center items-center"><FaPlay />CineView</div>
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="navbarScroll" />
             <Navbar.Collapse id="navbarScroll">
@@ -24,8 +25,8 @@ return (
                     <NavLink className ="nav-link" to="/">Home</NavLink>
                     <NavLink className ="nav-link" to="/watchList">Watch List</NavLink>      
                 </Nav>
-                <Button variant="outline-info" className="me-2">Login</Button>
-                <Button variant="outline-info">Register</Button>
+                <Link to="/signin"><Button variant="outline-info" className="me-2">Sign in</Button></Link>
+                <Link to="/signup"><Button variant="outline-info">Sign up</Button></Link>
             </Navbar.Collapse>
         </Container>
     </Navbar>
